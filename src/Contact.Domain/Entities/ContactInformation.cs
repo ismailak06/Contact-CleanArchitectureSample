@@ -1,9 +1,11 @@
 ﻿using Contact.Domain.Common;
 using Contact.Domain.Interfaces;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace Contact.Domain.Entities
 {
-    public class ContactInformation:AuditableEntity,ISoftDelete
+    public class ContactInformation : AuditableEntity, ISoftDelete
     {
         public ContactInformation(Type informationType, string content)
         {
@@ -11,13 +13,12 @@ namespace Contact.Domain.Entities
             Content = content;
         }
         public ContactInformation()
-        {
-
-        }
+        {}
 
         public Type InformationType { get; private set; }
+        public string InformationTypeDisplayName => InformationType.GetType().GetMember(InformationType.ToString()).First().GetCustomAttribute<DisplayAttribute>().GetName();
         public string Content { get; private set; }
-        
+
         public Contact Contact { get; private set; }
 
         public bool IsDeleted { get; private set; }
@@ -31,8 +32,11 @@ namespace Contact.Domain.Entities
         public enum Type
         {
             None,
+            [Display(Name = "Telefon Numarası")]
             PhoneNumber,
+            [Display(Name = "E-Posta")]
             Email,
+            [Display(Name = "Konum")]
             Location
         }
     }

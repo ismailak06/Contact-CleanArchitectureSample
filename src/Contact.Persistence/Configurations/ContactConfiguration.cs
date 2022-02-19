@@ -16,11 +16,11 @@ namespace Contact.Persistence.Configurations
             AuditableEntityConfiguration<Domain.Entities.Contact>.SetProperties(builder);
             SoftDeleteConfiguration<Domain.Entities.Contact>.SetProperties(builder);
 
-            builder.Property(m => m.Name)
+            builder.Property(m => m.FirstName)
                 .HasMaxLength(50)
                 .IsRequired();
 
-            builder.Property(m => m.Surname)
+            builder.Property(m => m.LastName)
                 .HasMaxLength(50)
                 .IsRequired();
 

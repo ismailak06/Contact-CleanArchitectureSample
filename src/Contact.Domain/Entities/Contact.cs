@@ -10,16 +10,16 @@ namespace Contact.Domain.Entities
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException($"'{nameof(Name)}' cannot be null or empty.", nameof(Name));
+                throw new ArgumentNullException($"'{nameof(FirstName)}' cannot be null or empty.", nameof(FirstName));
             }
 
             if (string.IsNullOrEmpty(surname))
             {
-                throw new ArgumentNullException($"'{nameof(Surname)}' cannot be null or empty.", nameof(Surname));
+                throw new ArgumentNullException($"'{nameof(LastName)}' cannot be null or empty.", nameof(LastName));
             }
 
-            Name = name;
-            Surname = surname;
+            FirstName = name;
+            LastName = surname;
             CompanyName = companyName;
         }
         public Contact()
@@ -27,8 +27,8 @@ namespace Contact.Domain.Entities
 
         }
 
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
         public string CompanyName { get; private set; }
 
         public ICollection<ContactInformation> ContactInformations { get; set; } = new List<ContactInformation>();

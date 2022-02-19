@@ -25,6 +25,8 @@ namespace Contact.Persistence.Configurations
                 .HasConversion<short>();
 
             builder.HasOne(m => m.Contact).WithMany(m => m.ContactInformations);
+
+            builder.Ignore(m => m.InformationTypeDisplayName);
         }
     }
 }
