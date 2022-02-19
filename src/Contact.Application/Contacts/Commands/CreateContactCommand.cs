@@ -2,10 +2,8 @@
 using Contact.Domain.Entities;
 using MediatR;
 
-
 namespace Contact.Application.Contacts.Commands
 {
-
     public class CreateContactCommand : IRequest<CreateContactResponse>
     {
         public string FirstName { get; set; }
@@ -34,7 +32,6 @@ namespace Contact.Application.Contacts.Commands
             };
         }
     }
-
 
     public class CreateContactResponse
     {

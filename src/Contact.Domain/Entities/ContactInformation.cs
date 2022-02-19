@@ -7,10 +7,11 @@ namespace Contact.Domain.Entities
 {
     public class ContactInformation : AuditableEntity, ISoftDelete
     {
-        public ContactInformation(Type informationType, string content)
+        public ContactInformation(Type informationType, string content, Contact contact)
         {
             InformationType = informationType;
             Content = content;
+            Contact = contact;
         }
         public ContactInformation()
         {}

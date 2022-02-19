@@ -12,5 +12,10 @@ namespace Contact.Domain.Entities
         {
             return new Contact(firstName, lastName, companyName);
         }
+
+        public ContactInformation CreateContactInformation(ContactInformation.Type type, string content, Contact contact)
+        {
+            return new ContactInformation(type, content, contact);
+        }
     }
 }
