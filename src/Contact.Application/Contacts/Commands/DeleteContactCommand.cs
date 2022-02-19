@@ -10,10 +10,10 @@ namespace Contact.Application.Contacts.Commands
         public int ContactId { get; set; }
     }
 
-    public class CreateCategoryCommandHandler : IRequestHandler<DeleteContactCommand, DeleteContactResponse>
+    public class DeleteContactCommandHandler : IRequestHandler<DeleteContactCommand, DeleteContactResponse>
     {
         private readonly IContactDbContext _context;
-        public CreateCategoryCommandHandler(IContactDbContext context)
+        public DeleteContactCommandHandler(IContactDbContext context)
         {
             _context = context;
         }

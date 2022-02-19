@@ -20,7 +20,7 @@ namespace Contact.Api.Controllers
 
         [HttpDelete]
         [Route("")]
-        public async Task<DeleteContactResponse> Delete([FromBody] DeleteContactCommand request, CancellationToken cancellationToken)
+        public async Task<DeleteContactResponse> Delete([FromBody] DeleteContactInformationCommand request, CancellationToken cancellationToken)
         => await _mediator.Send(request, cancellationToken);
     }
 }

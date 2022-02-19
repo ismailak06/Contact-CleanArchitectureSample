@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="ContactInformations\Queries\" />
-    <Folder Include="ContactInformations\Validators\" />
   </ItemGroup>
 
 </Project>
