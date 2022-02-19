@@ -1,4 +1,4 @@
-﻿namespace Mermas.Domain.Common
+﻿namespace Contact.Domain.Common
 {
     public abstract class Entity<T>
     {

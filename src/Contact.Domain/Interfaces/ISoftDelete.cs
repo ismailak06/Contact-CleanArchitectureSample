@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mermas.Domain.Interfaces
+namespace Contact.Domain.Interfaces
 {
     public interface ISoftDelete
     {

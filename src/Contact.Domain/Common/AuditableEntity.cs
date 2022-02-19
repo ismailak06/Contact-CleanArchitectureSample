@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mermas.Domain.Common
+namespace Contact.Domain.Common
 {
     public abstract class AuditableEntity : Entity<int>
     {

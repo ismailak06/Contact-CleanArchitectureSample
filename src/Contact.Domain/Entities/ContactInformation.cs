@@ -1,5 +1,5 @@
-﻿using Mermas.Domain.Common;
-using Mermas.Domain.Interfaces;
+﻿using Contact.Domain.Common;
+using Contact.Domain.Interfaces;
 
 namespace Contact.Domain.Entities
 {

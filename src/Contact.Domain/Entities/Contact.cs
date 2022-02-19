@@ -1,5 +1,5 @@
-﻿using Mermas.Domain.Common;
-using Mermas.Domain.Interfaces;
+﻿using Contact.Domain.Common;
+using Contact.Domain.Interfaces;
 
 
 namespace Contact.Domain.Entities
@@ -27,11 +27,15 @@ namespace Contact.Domain.Entities
 
         }
 
-        public string Name { get; private set; } 
-        public string Surname { get; private set; } 
+        public string Name { get; private set; }
+        public string Surname { get; private set; }
         public string CompanyName { get; private set; }
 
-        public List<ContactInformation> ContactInformations { get; private set; }
+        public ICollection<ContactInformation> ContactInformations { get; set; } = new List<ContactInformation>();
+        public IReadOnlyCollection<ContactInformation> PhoneNumberInformations => ContactInformations.Where(m => m.InformationType == ContactInformation.Type.PhoneNumber).ToList();
+        public IReadOnlyCollection<ContactInformation> EmailInformations => ContactInformations.Where(m => m.InformationType == ContactInformation.Type.Email).ToList();
+        public IReadOnlyCollection<ContactInformation> LocationInformations => ContactInformations.Where(m => m.InformationType == ContactInformation.Type.Location).ToList();
+
 
         public bool IsDeleted { get; private set; }
         public DateTime? DeletionDate { get; private set; }
