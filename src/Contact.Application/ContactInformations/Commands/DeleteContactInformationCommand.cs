@@ -4,23 +4,24 @@ using Contact.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Contact.Application.Contacts.Commands
+namespace Contact.Application.ContactInformations.Commands
 {
-    public class DeleteContactInformationCommand : IRequest<DeleteContactResponse>
+    public class DeleteContactInformationCommand : IRequest<DeleteContactInformationResponse>
     {
+        public int ContactId { get; set; }
         public int ContactInformationId { get; set; }
     }
 
-    public class DeleteContactInformationCommandHandler : IRequestHandler<DeleteContactInformationCommand, DeleteContactResponse>
+    public class DeleteContactInformationCommandHandler : IRequestHandler<DeleteContactInformationCommand, DeleteContactInformationResponse>
     {
         private readonly IContactDbContext _context;
         public DeleteContactInformationCommandHandler(IContactDbContext context)
         {
             _context = context;
         }
-        public async Task<DeleteContactResponse> Handle(DeleteContactInformationCommand request, CancellationToken cancellationToken)
+        public async Task<DeleteContactInformationResponse> Handle(DeleteContactInformationCommand request, CancellationToken cancellationToken)
         {
-            var contact = await _context.ContactInformations.FirstOrDefaultAsync(m => m.Id == request.ContactInformationId, cancellationToken);
+            var contact = await _context.ContactInformations.FirstOrDefaultAsync(m => m.Id == request.ContactInformationId && m.Contact.Id == request.ContactId, cancellationToken);
             if (contact is null)
             {
                 throw new NotFoundException(nameof(ContactInformation), request.ContactInformationId);
@@ -29,7 +30,7 @@ namespace Contact.Application.Contacts.Commands
             _context.ContactInformations.Remove(contact);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return new DeleteContactResponse
+            return new DeleteContactInformationResponse
             {
                 ContactId = contact.Id
             };

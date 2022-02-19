@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,8 +16,7 @@ namespace Contact.Persistence
     {
         public static void AddPersistenceLayer(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ContactDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ContactDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IContactDbContext>(provider => provider.GetService<ContactDbContext>());
         }
     }

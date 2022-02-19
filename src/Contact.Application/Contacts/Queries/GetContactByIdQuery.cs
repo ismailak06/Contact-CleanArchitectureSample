@@ -17,8 +17,8 @@ namespace Contact.Application.Contacts.Queries
     }
     public class GetContactByIdQueryHandler : IRequestHandler<GetContactByIdQuery, GetContactByIdResponse>
     {
-        IContactDbContext _context;
-        IMapper _mapper;
+        private readonly IContactDbContext _context;
+        private readonly IMapper _mapper;
 
         public GetContactByIdQueryHandler(IContactDbContext context, IMapper mapper)
         {

@@ -18,9 +18,12 @@ namespace Contact.Application.Mappings
                 opt => opt.MapFrom(src => src.Id))
             .ForMember(
                 dest => dest.ContactInformations,
-                opt => opt.MapFrom(src => src.ContactInformations)
-                )
-            ;
+                opt => opt.MapFrom(src => src.ContactInformations));
+
+            CreateMap<Domain.Entities.Contact, GetAllContactResponse>()
+                .ForMember(
+                dest => dest.ContactId,
+                opt => opt.MapFrom(src => src.Id));
         }
     }
 }

@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace Contact.Application.Mappings
 {
-    public class ContactInformationMappings : Profile
-    {
-        public ContactInformationMappings()
-        {
-            CreateMap<ContactInformation, ContactInformationResponse>()
-                     .ForMember(
-                dest => dest.ContactInformationId,
-                opt => opt.MapFrom(src => src.Id)
-                );
-        }
-    }
+   public class ContactInformationMappings :Profile 
+   {
+       public ContactInformationMappings()
+       {
+           CreateMap<ContactInformation, ContactInformationResponse>()
+                    .ForMember(
+               dest => dest.ContactInformationId,
+               opt => opt.MapFrom(src => src.Id)
+               );
+       }
+   }
 }

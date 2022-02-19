@@ -1,5 +1,6 @@
 ﻿using Contact.Api.Common;
 using Contact.Application.ContactInformations.Commands;
+using Contact.Application.Contacts.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,11 @@ namespace Contact.Api.Controllers
         [HttpPost]
         [Route("")]
         public async Task<CreateContactInformationResponse> Create([FromBody] CreateContactInformationCommand request, CancellationToken cancellationToken)
+           => await _mediator.Send(request, cancellationToken);
+
+        [HttpDelete]
+        [Route("")]
+        public async Task<DeleteContactInformationResponse> Create([FromBody] DeleteContactInformationCommand request, CancellationToken cancellationToken)
            => await _mediator.Send(request, cancellationToken);
     }
 }
