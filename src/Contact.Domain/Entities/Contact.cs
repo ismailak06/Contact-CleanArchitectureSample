@@ -6,7 +6,7 @@ namespace Contact.Domain.Entities
 {
     public class Contact : AuditableEntity, ISoftDelete
     {
-        public Contact(string name, string surname, string? companyName)
+        public Contact(string name, string surname, string companyName)
         {
             if (string.IsNullOrEmpty(name))
             {
