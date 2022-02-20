@@ -1,8 +1,6 @@
 ﻿using Contact.Api.Common;
 using Contact.Application.ContactInformations.Commands;
-using Contact.Application.Contacts.Commands;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Contact.Api.Controllers

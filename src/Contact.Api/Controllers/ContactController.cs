@@ -1,5 +1,4 @@
 ﻿using Contact.Api.Common;
-using Contact.Application.ContactInformations.Commands;
 using Contact.Application.Contacts.Commands;
 using Contact.Application.Contacts.Queries;
 using MediatR;

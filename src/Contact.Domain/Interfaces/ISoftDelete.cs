@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Contact.Domain.Interfaces
+﻿namespace Contact.Domain.Interfaces
 {
     public interface ISoftDelete
     {

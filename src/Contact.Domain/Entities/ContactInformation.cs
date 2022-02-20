@@ -14,7 +14,7 @@ namespace Contact.Domain.Entities
             Contact = contact;
         }
         public ContactInformation()
-        {}
+        { }
 
         public Type InformationType { get; private set; }
         public string InformationTypeDisplayName => InformationType.GetType().GetMember(InformationType.ToString()).First().GetCustomAttribute<DisplayAttribute>().GetName();
@@ -32,6 +32,7 @@ namespace Contact.Domain.Entities
         }
         public enum Type
         {
+            [Display(Name = "N/A")]
             None,
             [Display(Name = "Telefon Numarası")]
             PhoneNumber,

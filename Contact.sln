@@ -7,15 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{932A6E1D-993
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{61B968F9-FDC3-42DA-AED1-57AB9E77E16A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact.Api", "src\Contact.Api\Contact.Api.csproj", "{22027975-78A4-4B1B-A8D7-16ED43A4CCD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact.Api", "src\Contact.Api\Contact.Api.csproj", "{22027975-78A4-4B1B-A8D7-16ED43A4CCD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact.Application", "src\Contact.Application\Contact.Application.csproj", "{9B62A419-3962-4EA9-A1E0-0D9D8F7DF71A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact.Application", "src\Contact.Application\Contact.Application.csproj", "{9B62A419-3962-4EA9-A1E0-0D9D8F7DF71A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact.Domain", "src\Contact.Domain\Contact.Domain.csproj", "{65B15ADF-EC56-4781-9805-C2A0C0AC274E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact.Domain", "src\Contact.Domain\Contact.Domain.csproj", "{65B15ADF-EC56-4781-9805-C2A0C0AC274E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact.Infrastructure", "src\Contact.Infrastructure\Contact.Infrastructure.csproj", "{218B01B4-DADA-4F6F-8237-33C4C593E7CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact.Infrastructure", "src\Contact.Infrastructure\Contact.Infrastructure.csproj", "{218B01B4-DADA-4F6F-8237-33C4C593E7CB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact.Persistence", "src\Contact.Persistence\Contact.Persistence.csproj", "{F0506E1E-839D-48D3-89A3-B944896B8521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact.RabbitMQReportConsumer", "src\Contact.RabbitMQReportConsumer\Contact.RabbitMQReportConsumer.csproj", "{B6E984EA-E389-4CDD-8AB2-E1CC69086E56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{F0506E1E-839D-48D3-89A3-B944896B8521}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0506E1E-839D-48D3-89A3-B944896B8521}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0506E1E-839D-48D3-89A3-B944896B8521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E984EA-E389-4CDD-8AB2-E1CC69086E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E984EA-E389-4CDD-8AB2-E1CC69086E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E984EA-E389-4CDD-8AB2-E1CC69086E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E984EA-E389-4CDD-8AB2-E1CC69086E56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{65B15ADF-EC56-4781-9805-C2A0C0AC274E} = {932A6E1D-9939-4150-8A99-06629159F4A3}
 		{218B01B4-DADA-4F6F-8237-33C4C593E7CB} = {932A6E1D-9939-4150-8A99-06629159F4A3}
 		{F0506E1E-839D-48D3-89A3-B944896B8521} = {932A6E1D-9939-4150-8A99-06629159F4A3}
+		{B6E984EA-E389-4CDD-8AB2-E1CC69086E56} = {932A6E1D-9939-4150-8A99-06629159F4A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7879B0D2-76C6-471C-B9E5-77C96077EFB2}

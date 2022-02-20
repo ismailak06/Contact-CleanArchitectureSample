@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Contact.Domain.Common
+﻿namespace Contact.Domain.Common
 {
     public abstract class AuditableEntity : Entity<int>
     {

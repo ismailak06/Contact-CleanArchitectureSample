@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Contact.Domain.Entities
+﻿namespace Contact.Domain.Entities
 {
     public class User
     {
@@ -17,5 +11,6 @@ namespace Contact.Domain.Entities
         {
             return new ContactInformation(type, content, contact);
         }
+
     }
 }

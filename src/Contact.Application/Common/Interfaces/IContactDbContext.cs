@@ -8,6 +8,7 @@ namespace Contact.Application.Common.Interfaces
     {
         DbSet<Domain.Entities.Contact> Contacts { get; set; }
         DbSet<ContactInformation> ContactInformations { get; set; }
+        DbSet<Domain.Entities.DocumentLog> DocumnetLogs { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         Task<IDbContextTransaction> BeginTransactionAsync();
     }

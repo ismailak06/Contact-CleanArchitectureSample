@@ -12,6 +12,7 @@ namespace Contact.Persistence.Context
     {
         public DbSet<Domain.Entities.Contact> Contacts { get; set; }
         public DbSet<ContactInformation> ContactInformations { get; set; }
+        public DbSet<DocumentLog> DocumnetLogs { get; set; }
 
         public ContactDbContext(DbContextOptions options) : base(options)
         {
@@ -21,7 +22,7 @@ namespace Contact.Persistence.Context
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
         }
-   
+
         public async override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach (var entry in ChangeTracker.Entries<AuditableEntity>())

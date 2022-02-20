@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Contact.Application.Common.Exceptions
+﻿namespace Contact.Application.Common.Exceptions
 {
     public class NotFoundException : Exception
     {
