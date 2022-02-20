@@ -47,7 +47,6 @@ namespace Contact.Domain.Tests
         {
             var user = new User();
             var contact = new Entities.Contact("Okan","Demir");
-            contact.Id = 3;
             var contactInformation = user.CreateContactInformation(ContactInformation.Type.PhoneNumber,"05390000000", contact);
             
             Assert.NotNull(contactInformation);
@@ -58,7 +57,6 @@ namespace Contact.Domain.Tests
         {
             var user = new User();
             var contact = new Entities.Contact("Okan", "Demir");
-            contact.Id = 3;
 
             Assert.Throws<ArgumentNullException>(() => {
                 user.CreateContactInformation(ContactInformation.Type.Email, string.Empty, contact);

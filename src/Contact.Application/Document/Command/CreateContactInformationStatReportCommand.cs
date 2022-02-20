@@ -23,13 +23,34 @@ namespace Contact.Application.Document.Command
 
         public async Task<CreateContactInformationStatReportResponse> Handle(CreateContactInformationStatReportCommand request, CancellationToken cancellationToken)
         {
-            var contactInfoTypeStats = await _context.ContactInformations.GroupBy(m => m.InformationType).Select(m => new ContactInformationTypeStat
-            {
-                TypeName = m.Key.ToString(),
-                Count = m.Count()
-            }).ToListAsync();
+            var contactCountListByCity = await _context.ContactInformations
+                .Where(m => m.InformationType == Domain.Entities.ContactInformation.Type.Location)
+                .GroupBy(m => new
+                {
+                    m.Content,
+                    m.Contact.Id
+                }).Select(m => new
+                {
+                    ContentName = m.Key.Content,
+                }).ToListAsync();
 
-            saveReportFile(contactInfoTypeStats);
+            var contactInfoLocationStats = contactCountListByCity
+                .GroupBy(m => m.ContentName)
+                .Select(m => new ContactInformationTypeStat
+                {
+                    ContentName = m.Key,
+                    Count = m.Count(),
+                    PhoneNumberCount =
+                    _context.Contacts
+                    .Where(y =>
+                        y.ContactInformations.Any(x => x.InformationType == Domain.Entities.ContactInformation.Type.Location && x.Content == m.Key))
+                    .Include(x => x.ContactInformations)
+                    .Select(x => x.PhoneNumberInformations).ToList().SelectMany(x => x).ToList().Count()
+                }).ToList();
+
+
+
+            saveReportFile(contactInfoLocationStats);
             var result = await setDocumentLogStatusAsCompleted(request.DocumentLogId);
 
             return new CreateContactInformationStatReportResponse
@@ -53,22 +74,30 @@ namespace Contact.Application.Document.Command
             using var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add("İletişim Bilgisi İstatistik");
 
-            int row = 1;
+            worksheet.Cell(1, 1).Value = "Şehir Adı";
+            worksheet.Cell(1, 2).Value = "Şehirdeki Kişi Sayısı";
+            worksheet.Cell(1, 3).Value = "Telefon Numarası Sayısı";
+
+            int row = 2;
             foreach (var stat in contactInfoStats)
             {
-                worksheet.Cell(row, 1).Value = stat.TypeName;
+                worksheet.Cell(row, 1).Value = stat.ContentName;
                 worksheet.Cell(row, 2).Value = stat.Count;
+                worksheet.Cell(row, 3).Value = stat.PhoneNumberCount;
+
                 row++;
             }
             using (MemoryStream memoryStream = new())
             {
-                workbook.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), "ReportFiles", Guid.NewGuid().ToString()+".xlsx"));
+                workbook.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), "ReportFiles", Guid.NewGuid().ToString() + ".xlsx"));
             }
         }
         private class ContactInformationTypeStat
         {
-            public string TypeName { get; set; }
+            public string ContentName { get; set; }
             public int Count { get; set; }
+            public int PhoneNumberCount { get; set; }
+
         }
     }
 

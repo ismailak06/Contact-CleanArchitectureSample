@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <Folder Include="ContactInformations\Queries\" />
-    <Folder Include="DocumentLog\Queries\" />
   </ItemGroup>
 
 </Project>
