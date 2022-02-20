@@ -19,6 +19,7 @@ dotnet ef database update --project src/Contact.Persistence
 - .Net 6.0
 - AspNetCore WebAPI
 - Console App
+- xUnit
 - EntityFrameworkCore
 - FluentValidation
 - MediatR
