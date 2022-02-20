@@ -9,6 +9,10 @@ namespace Contact.Domain.Entities
     {
         public DocumentLog(Status processStatus)
         {
+            if (!Enum.IsDefined(typeof(Status), processStatus))
+            {
+                throw new ArgumentOutOfRangeException(nameof(processStatus));
+            }
             ProcessStatus = processStatus;
         }
         public Status ProcessStatus { get; private set; }
@@ -35,5 +39,6 @@ namespace Contact.Domain.Entities
             [Display(Name = "Tamamlandı")]
             Completed
         }
+
     }
 }

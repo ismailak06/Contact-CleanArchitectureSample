@@ -2,7 +2,7 @@
 {
     public class User
     {
-        public Contact CreateContact(string firstName, string lastName, string companyName)
+        public Contact CreateContact(string firstName, string lastName, string companyName = null)
         {
             return new Contact(firstName, lastName, companyName);
         }

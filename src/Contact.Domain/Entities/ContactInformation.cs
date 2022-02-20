@@ -9,6 +9,20 @@ namespace Contact.Domain.Entities
     {
         public ContactInformation(Type informationType, string content, Contact contact)
         {
+            if (string.IsNullOrEmpty(content))
+            {
+                throw new ArgumentNullException(nameof(content));
+            }
+            if (contact is null)
+            {
+                throw new NullReferenceException(nameof(contact));
+            }
+
+            if (!Enum.IsDefined(typeof(Type), informationType))
+            {
+                throw new ArgumentOutOfRangeException(nameof(informationType));
+            }
+
             InformationType = informationType;
             Content = content;
             Contact = contact;
