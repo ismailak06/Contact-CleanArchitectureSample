@@ -14,6 +14,8 @@ and
 ```git bash
 dotnet ef database update --project src/Contact.Persistence
 ```
+When you start API project Swagger interface will redirect you about endpoint. <br>
+If you want to create report files with RabbitMQ, don't forget start RabbitMQReportConsumer console app.
 
 ## Technologies
 - .Net 6.0
