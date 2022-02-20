@@ -25,4 +25,5 @@ dotnet ef database update --project src/Contact.Persistence
 - AutoMapper
 - PostgreSQL
 - ClosedXML
+- RabbitMQ
 
