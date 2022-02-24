@@ -14,7 +14,7 @@ namespace Contact.Domain.Entities
                 throw new ArgumentOutOfRangeException(nameof(processStatus));
             }
             ProcessStatus = processStatus;
-        }
+        }   
         public Status ProcessStatus { get; private set; }
         public string ProcessStatusDisplayName => ProcessStatus.GetType().GetMember(ProcessStatus.ToString()).First().GetCustomAttribute<DisplayAttribute>().GetName();
 
